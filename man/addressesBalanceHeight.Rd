@@ -14,8 +14,16 @@ addressesBalanceHeight(address, height, token_id = NULL)
 \item{token_id}{Token ID.}
 }
 \value{
-
+A tibble with requested address, specific block height, and balance.
 }
 \description{
 $ERG or token balancee of an address at a specific block height.
+}
+\examples{
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+addressesBalanceHeight(bearwhale, height = 700000)
+
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+erdoge <- "3a7eb9b71a231b8df485c4d8b081726eda9876d2ce2d59bab5e5874c6cbba220"
+addressesBalanceHeight(bearwhale, height = 700000, token_id = erdoge)
 }

@@ -19,3 +19,6 @@ A tibble with total count of contract addresses.
 \description{
 Current contract addresses count.
 }
+\examples{
+contractsCount()
+}

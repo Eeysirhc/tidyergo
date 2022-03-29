@@ -1,8 +1,8 @@
 # P2S & P2SH address statistics
 
-library(httr)
-library(dplyr)
-library(jsonlite)
+#library(httr)
+#library(dplyr)
+#library(jsonlite)
 
 options(digits = 10,
         scipen = 100)
@@ -17,9 +17,13 @@ options(digits = 10,
 #' @param token_id Token ID.
 #'
 #' @return A tibble with total count of contract addresses.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
 #' @export
 #'
 #' @examples
+#' contractsCount()
 
 contractsCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
@@ -37,3 +41,7 @@ contractsCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
   return(df)
 }
+
+
+
+

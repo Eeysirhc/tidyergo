@@ -12,8 +12,16 @@ addressesBalance(address, token_id = NULL)
 \item{token_id}{Token ID.}
 }
 \value{
-
+A tibble with the requested address and balance.
 }
 \description{
 Current $ERG or token balance of an address.
+}
+\examples{
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+addressesBalance(bearwhale)
+
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+erdoge <- "3a7eb9b71a231b8df485c4d8b081726eda9876d2ce2d59bab5e5874c6cbba220"
+addressesBalance(bearwhale, token_id = erdoge)
 }

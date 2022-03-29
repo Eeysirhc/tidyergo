@@ -1,13 +1,14 @@
 # Miscellaneous functions
 
-library(httr)
-library(dplyr)
-library(jsonlite)
+#library(httr)
+#library(dplyr)
+#library(jsonlite)
 
 options(digits = 10,
         scipen = 100)
 
 # https://ergo.watch/api/v0/docs#/misc/P2PK_address_rank_ranking__p2pk_address__get
+# Future: move to p2pk.R functions
 #' P2PK Address Rank
 #'
 #' Get the rank of a P2PK address by current balance.
@@ -17,9 +18,14 @@ options(digits = 10,
 #' @param address Required: the P2PK address.
 #'
 #' @return work in progress.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
 #' @export
 #'
 #' @examples
+#' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+#' p2pkRanking(bearwhale)
 
 p2pkRanking <- function(address){
 
@@ -31,4 +37,6 @@ p2pkRanking <- function(address){
 
   return(df)
 }
+
+
 

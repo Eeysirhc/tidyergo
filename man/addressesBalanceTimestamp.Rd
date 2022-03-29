@@ -14,8 +14,16 @@ addressesBalanceTimestamp(address, timestamp, token_id = NULL)
 \item{token_id}{Token ID.}
 }
 \value{
-
+A tibble with the requested address, specific timestamp, and balance.
 }
 \description{
 $ERG or token balance of an address at a specific timestamp.
+}
+\examples{
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+addressesBalanceTimestamp(bearwhale, timestamp = 1614307368646)
+
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+erdoge <- "3a7eb9b71a231b8df485c4d8b081726eda9876d2ce2d59bab5e5874c6cbba220"
+addressesBalanceTimestamp(bearwhale, timestamp = 1614307368646, token_id = erdoge)
 }

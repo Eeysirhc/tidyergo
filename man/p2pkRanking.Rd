@@ -18,3 +18,7 @@ Get the rank of a P2PK address by current balance.
 \details{
 Includes next and previous addresses as well.
 }
+\examples{
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+p2pkRanking(bearwhale)
+}

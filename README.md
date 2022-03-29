@@ -1,7 +1,7 @@
 # tidyergo
 
 ## Overview
-[Ergo](https://ergoplatform.org/en/) blockchain statistics with R/Tidyverse leveraging API endponts from the Explorer, ErgoWatch, and ErgoDEX.
+[Ergo](https://ergoplatform.org/en/) blockchain statistics with R/Tidyverse leveraging the API endpoints from Explorer, ErgoWatch, and ErgoDEX.
 
 
 ## Installation
@@ -15,5 +15,10 @@ devtools::install_github("Eeysirhc/tidyergo")
 ```r
 placeholder text
 ```
+
+
+## Changelog
+
+- ## v0.1.0: [unreleased]
 
 

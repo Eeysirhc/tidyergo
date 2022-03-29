@@ -12,11 +12,19 @@ addressesBalanceHistory(address, token_id = NULL)
 \item{token_id}{Token ID.}
 }
 \value{
-
+A tibble with requested address, block height, timestamp/datetime, and balance.
 }
 \description{
 $ERG or token balance history of an address.
 }
 \details{
 Sorts by oldest first with a limit of 10,000 rows.
+}
+\examples{
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+addressesBalanceHistory(bearwhale)
+
+bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
+erdoge <- "3a7eb9b71a231b8df485c4d8b081726eda9876d2ce2d59bab5e5874c6cbba220"
+addressesBalanceHistory(bearwhale, token_id = erdoge)
 }

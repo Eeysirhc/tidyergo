@@ -1,8 +1,8 @@
 # Token functions
 
-library(httr)
-library(dplyr)
-library(jsonlite)
+#library(httr)
+#library(dplyr)
+#library(jsonlite)
 
 options(digits = 10,
         scipen = 100)
@@ -15,6 +15,9 @@ options(digits = 10,
 #' @param token_id Token ID.
 #'
 #' @return A tibble with total, circulating, and burned supply for a specific token.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
 #' @export
 #'
 #' @examples

@@ -1,8 +1,8 @@
 # P2PK address statistics
 
-library(httr)
-library(dplyr)
-library(jsonlite)
+#library(httr)
+#library(dplyr)
+#library(jsonlite)
 
 options(digits = 10,
         scipen = 100)
@@ -18,16 +18,16 @@ options(digits = 10,
 #' @param token_id Token ID.
 #'
 #' @return A tibble with total count of P2PK addresses.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
 #' @export
 #'
 #' @examples
-#' Total Ergo wallets
 #' p2pkCount()
 #'
-#' Wallets holding 1 million or more $ERG
 #' p2pkCount(bal_ge = 1000000)
 #'
-#' Count of wallets holding 1 billion or more $migoreng
 #' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
 #' p2pkCount(bal_ge = 1000000000, token_id = migoreng)
 
