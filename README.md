@@ -1,7 +1,7 @@
 # tidyergo
 
 ## Overview
-[Ergo](https://ergoplatform.org/en/) blockchain statistics with R/Tidyverse leveraging the API endpoints from Explorer, ErgoWatch, and ErgoDEX.
+[Ergo](https://ergoplatform.org/en/) blockchain statistics with R/Tidyverse leveraging the API endpoints from [Explorer](https://api.ergoplatform.com/api/v1/docs/), [ErgoWatch](https://ergo.watch/api/v0/docs), and [ErgoDEX](https://api.ergodex.io/v1/docs/).
 
 
 ## Installation
@@ -39,11 +39,21 @@ migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
 tokensSupply(migoreng)
 ```
 
+## Roadmap
+
+- [] Develop function parity with Ergo Explorer
+- [x] Develop function parity with ErgoWatch
+- [] Develop function parity with ErgoDEX
 
 
 
 ## Changelog
 
 - v0.1.0: [unreleased]
+
+
+
+
+
 
 
