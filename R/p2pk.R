@@ -1,4 +1,4 @@
-#' P2PK address statistics
+# P2PK address statistics
 
 library(httr)
 library(dplyr)
@@ -7,8 +7,29 @@ library(jsonlite)
 options(digits = 10,
         scipen = 100)
 
-### Number of P2PK Addresses ###
+
 # https://ergo.watch/api/v0/docs#/p2pk/Number_of_P2PK_addresses_p2pk_count_get
+#' Number of P2PK Addresses
+#'
+#' Current P2PK addresses count.
+#'
+#' @param bal_ge Only count contract addresses with balance greater or equal to bal_ge. Default at 0.
+#' @param bal_lt Only count contract addresses with balance lower than bal_lt.
+#' @param token_id Token ID.
+#'
+#' @return A tibble with total count of P2PK addresses.
+#' @export
+#'
+#' @examples
+#' Total Ergo wallets
+#' p2pkCount()
+#'
+#' Wallets holding 1 million or more $ERG
+#' p2pkCount(bal_ge = 1000000)
+#'
+#' Count of wallets holding 1 billion or more $migoreng
+#' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
+#' p2pkCount(bal_ge = 1000000000, token_id = migoreng)
 
 p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
@@ -26,4 +47,3 @@ p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
   return(df)
 }
-

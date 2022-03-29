@@ -1,3 +1,5 @@
+# Miscellaneous functions
+
 library(httr)
 library(dplyr)
 library(jsonlite)
@@ -5,23 +7,19 @@ library(jsonlite)
 options(digits = 10,
         scipen = 100)
 
-### P2PK Address Rank
 # https://ergo.watch/api/v0/docs#/misc/P2PK_address_rank_ranking__p2pk_address__get
-
-
-
 #' P2PK Address Rank
 #'
 #' Get the rank of a P2PK address by current balance.
+#'
 #' Includes next and previous addresses as well.
 #'
-#' @param address The P2PK address on the Ergo blockchain.
+#' @param address Required: the P2PK address.
 #'
-#' @return A tibble with stuff
+#' @return work in progress.
 #' @export
 #'
 #' @examples
-#'
 
 p2pkRanking <- function(address){
 
@@ -33,7 +31,4 @@ p2pkRanking <- function(address){
 
   return(df)
 }
-
-
-
 

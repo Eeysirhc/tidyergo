@@ -7,15 +7,14 @@
 p2pkRanking(address)
 }
 \arguments{
-\item{address}{The P2PK address on the Ergo blockchain.}
+\item{address}{Required: the P2PK address.}
 }
 \value{
-A tibble with stuff
+work in progress.
 }
 \description{
 Get the rank of a P2PK address by current balance.
-Includes next and previous addresses as well.
 }
-\examples{
-
+\details{
+Includes next and previous addresses as well.
 }

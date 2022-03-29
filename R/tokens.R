@@ -1,3 +1,5 @@
+# Token functions
+
 library(httr)
 library(dplyr)
 library(jsonlite)
@@ -5,22 +7,19 @@ library(jsonlite)
 options(digits = 10,
         scipen = 100)
 
-### Token Supply
 # https://ergo.watch/api/v0/docs#/tokens/token_supply_tokens__token_id__supply_get
-
-
-
 #' Token Supply
 #'
 #' Emitted, circulating, and burned token supply.
 #'
-#' @param token_id The token ID on the Ergo blockchain.
+#' @param token_id Token ID.
 #'
 #' @return A tibble with total, circulating, and burned supply for a specific token.
 #' @export
 #'
 #' @examples
-#'
+#' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
+#' tokensSupply(migoreng)
 
 tokensSupply <- function(token_id){
 
@@ -33,6 +32,7 @@ tokensSupply <- function(token_id){
 
   return(df)
 }
+
 
 
 

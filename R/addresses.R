@@ -1,4 +1,4 @@
-#' Address specific data
+# Address specific data
 
 library(httr)
 library(dplyr)
@@ -7,8 +7,19 @@ library(jsonlite)
 options(digits = 10,
         scipen = 100)
 
-### Address Balance ###
+
 # https://ergo.watch/api/v0/docs#/addresses/address_balance_addresses__address__balance_get
+#' Address Balance
+#'
+#' Current $ERG or token balance of an address.
+#'
+#' @param address Required: the P2PK address.
+#' @param token_id Token ID.
+#'
+#' @return
+#' @export
+#'
+#' @examples
 
 addressesBalance <- function(address, token_id = NULL){
 
@@ -27,8 +38,19 @@ addressesBalance <- function(address, token_id = NULL){
 
 
 
-### Address Balance At Height ###
 # https://ergo.watch/api/v0/docs#/addresses/address_balance_at_height_addresses__address__balance_at_height__height__get
+#' Address Balance At Height
+#'
+#' $ERG or token balancee of an address at a specific block height.
+#'
+#' @param address Required: the P2PK address.
+#' @param height Required: block height.
+#' @param token_id Token ID.
+#'
+#' @return
+#' @export
+#'
+#' @examples
 
 addressesBalanceHeight <- function(address, height, token_id = NULL){
 
@@ -48,8 +70,19 @@ addressesBalanceHeight <- function(address, height, token_id = NULL){
 
 
 
-### Address Balance At Timestamp ###
 # https://ergo.watch/api/v0/docs#/addresses/address_balance_at_timestamp_addresses__address__balance_at_timestamp__timestamp__get
+#' Address Balance At Timestamp
+#'
+#' $ERG or token balance of an address at a specific timestamp.
+#'
+#' @param address Required: the P2PK address.
+#' @param timestamp Required: timestamp.
+#' @param token_id Token ID.
+#'
+#' @return
+#' @export
+#'
+#' @examples
 
 addressesBalanceTimestamp <- function(address, timestamp, token_id = NULL){
 
@@ -70,8 +103,21 @@ addressesBalanceTimestamp <- function(address, timestamp, token_id = NULL){
 
 
 
-### Address Balance History ###
+
 # https://ergo.watch/api/v0/docs#/addresses/address_balance_history_addresses__address__balance_history_get
+#' Address Balance History
+#'
+#' $ERG or token balance history of an address.
+#'
+#' Sorts by oldest first with a limit of 10,000 rows.
+#'
+#' @param address Required: the P2PK address.
+#' @param token_id Token ID.
+#'
+#' @return
+#' @export
+#'
+#' @examples
 
 addressesBalanceHistory <- function(address, token_id = NULL){
 
@@ -88,9 +134,6 @@ addressesBalanceHistory <- function(address, token_id = NULL){
 
   return(df)
 }
-
-
-
 
 
 

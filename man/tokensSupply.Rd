@@ -7,7 +7,7 @@
 tokensSupply(token_id)
 }
 \arguments{
-\item{token_id}{The token ID on the Ergo blockchain.}
+\item{token_id}{Token ID.}
 }
 \value{
 A tibble with total, circulating, and burned supply for a specific token.
@@ -16,5 +16,6 @@ A tibble with total, circulating, and burned supply for a specific token.
 Emitted, circulating, and burned token supply.
 }
 \examples{
-
+migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
+tokensSupply(migoreng)
 }
