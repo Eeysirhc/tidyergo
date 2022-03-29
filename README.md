@@ -41,9 +41,9 @@ tokensSupply(migoreng)
 
 ## Roadmap
 
-- [] Develop function parity with Ergo Explorer
+- [ ] Develop function parity with Ergo Explorer
 - [x] Develop function parity with ErgoWatch
-- [] Develop function parity with ErgoDEX
+- [ ] Develop function parity with ErgoDEX
 
 
 
