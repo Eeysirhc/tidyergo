@@ -4,9 +4,6 @@
 #library(dplyr)
 #library(jsonlite)
 
-options(digits = 10,
-        scipen = 100)
-
 
 # https://ergo.watch/api/v0/docs#/p2pk/Number_of_P2PK_addresses_p2pk_count_get
 #' Number of P2PK Addresses
@@ -33,9 +30,9 @@ options(digits = 10,
 
 p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
-  url_request <- paste0("https://ergo.watch/api/v0/p2pk/count?bal_ge=", bal_ge,
+  url_request <- paste0("https://ergo.watch/api/v0/p2pk/count?bal_ge=", format(bal_ge, scientific = FALSE),
                         ifelse(!is.null(bal_lt),
-                               paste0("&bal_lt=", bal_lt), ""),
+                               paste0("&bal_lt=", format(bal_lt, scientific = FALSE)), ""),
                         ifelse(!is.null(token_id),
                                paste0("&token_id=", token_id), ""))
 
@@ -47,3 +44,6 @@ p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
   return(df)
 }
+
+
+

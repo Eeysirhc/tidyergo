@@ -4,9 +4,6 @@
 #library(dplyr)
 #library(jsonlite)
 
-options(digits = 10,
-        scipen = 100)
-
 # https://ergo.watch/api/v0/docs#/tokens/token_supply_tokens__token_id__supply_get
 #' Token Supply
 #'

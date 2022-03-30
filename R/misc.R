@@ -4,9 +4,6 @@
 #library(dplyr)
 #library(jsonlite)
 
-options(digits = 10,
-        scipen = 100)
-
 # https://ergo.watch/api/v0/docs#/misc/P2PK_address_rank_ranking__p2pk_address__get
 # Future: move to p2pk.R functions
 #' P2PK Address Rank

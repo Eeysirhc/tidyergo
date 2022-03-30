@@ -172,5 +172,3 @@ addressesBalanceHistory <- function(address, token_id = NULL){
 }
 
 
-
-
