@@ -37,11 +37,8 @@ contractsCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
     content(as = "text", encoding = "UTF-8") %>%
     fromJSON(flatten = TRUE) %>%
     as_tibble() %>%
-    rename(total_addresses = value)
+    dplyr::rename(total_addresses = value)
 
   return(df)
 }
-
-
-
 
