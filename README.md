@@ -13,7 +13,7 @@ devtools::install_github("Eeysirhc/tidyergo")
 
 ## Usage
 
-### Current ERG balance for an address
+### Current balance for an address
 ```r
 bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
 addressesBalance(bearwhale)
