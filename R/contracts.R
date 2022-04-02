@@ -1,9 +1,5 @@
 # P2S & P2SH address statistics
 
-#library(httr)
-#library(dplyr)
-#library(jsonlite)
-
 # https://ergo.watch/api/v0/docs#/contracts/get_contract_address_count_contracts_count_get
 #' Get Contract Address Count
 #'
@@ -32,13 +28,12 @@ contractsCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
   df <- GET(url_request) %>%
     content(as = "text", encoding = "UTF-8") %>%
-    fromJSON(flatten = TRUE) %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
     as_tibble() %>%
     dplyr::rename(total_addresses = value)
 
   return(df)
 }
-
 
 
 

@@ -1,13 +1,5 @@
 # Address specific data
 
-#library(httr)
-#library(dplyr)
-#library(jsonlite)
-
-options(digits = 10,
-        scipen = 100)
-
-
 # https://ergo.watch/api/v0/docs#/addresses/address_balance_addresses__address__balance_get
 #' Address Balance
 #'
@@ -38,7 +30,7 @@ addressesBalance <- function(address, token_id = NULL){
 
   df <- GET(url_request) %>%
     content(as = "text", encoding = "UTF-8") %>%
-    fromJSON(flatten = TRUE) %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
     as_tibble() %>%
     mutate(address = address)
 
@@ -78,7 +70,7 @@ addressesBalanceHeight <- function(address, height, token_id = NULL){
 
   df <- GET(url_request) %>%
     content(as = "text", encoding = "UTF-8") %>%
-    fromJSON(flatten = TRUE) %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
     as_tibble() %>%
     mutate(address = address,
            height = height)
@@ -119,7 +111,7 @@ addressesBalanceTimestamp <- function(address, timestamp, token_id = NULL){
 
   df <- GET(url_request) %>%
     content(as = "text", encoding = "UTF-8") %>%
-    fromJSON(flatten = TRUE) %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
     as_tibble() %>%
     mutate(timestamp = timestamp,
            datetime = as.POSIXct(timestamp / 1000, origin = "1970-01-01"),
@@ -163,12 +155,15 @@ addressesBalanceHistory <- function(address, token_id = NULL){
 
   df <- GET(url_request) %>%
     content(as = "text", encoding = "UTF-8") %>%
-    fromJSON(flatten = TRUE) %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
     as_tibble() %>%
     mutate(datetime = as.POSIXct(timestamps / 1000, origin = "1970-01-01"),
            address = address)
 
   return(df)
 }
+
+
+
 
 

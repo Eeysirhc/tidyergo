@@ -25,5 +25,5 @@ p2pkCount()
 p2pkCount(bal_ge = 1000000)
 
 migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
-p2pkCount(bal_ge = 1000000000, token_id = migoreng)
+p2pkCount(bal_ge = 1e9, token_id = migoreng)
 }

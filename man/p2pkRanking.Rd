@@ -10,13 +10,10 @@ p2pkRanking(address)
 \item{address}{Required: the P2PK address.}
 }
 \value{
-work in progress.
+A tibble with the target address, rank, balance, and the next/previous addresses as well.
 }
 \description{
 Get the rank of a P2PK address by current balance.
-}
-\details{
-Includes next and previous addresses as well.
 }
 \examples{
 bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
