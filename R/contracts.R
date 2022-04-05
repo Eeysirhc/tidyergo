@@ -37,3 +37,38 @@ contractsCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
 
 
+# https://ergo.watch/api/v0/docs#/contracts/supply_in_contracts_contracts_supply_get
+#' Supply In Contracts
+#'
+#' Supply in contracts.
+#'
+#' @param token_id Token ID.
+#'
+#' @return A tibble with total value supplied in contracts.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
+#' @export
+#'
+#' @examples
+#' contractsSupply()
+#'
+#' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
+#' contractsSupply(migoreng)
+
+contractsSupply <- function(token_id = NULL){
+
+  url_request <- paste0("https://ergo.watch/api/v0/contracts/supply",
+                        ifelse(!is.null(token_id),
+                               paste0("?token_id=", token_id), ""))
+
+  df <- GET(url_request) %>%
+    content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as_tibble()
+
+  return(df)
+}
+
+
+

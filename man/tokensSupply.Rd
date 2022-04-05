@@ -7,13 +7,13 @@
 tokensSupply(token_id)
 }
 \arguments{
-\item{token_id}{Token ID.}
+\item{token_id}{Required: Token ID.}
 }
 \value{
-A tibble with total, circulating, and burned supply for a specific token.
+A tibble with token supply breakdown: emitted, in P2PK addresses, in contracts, and burned. Emitted is sum of other three.
 }
 \description{
-Emitted, circulating, and burned token supply.
+Emitted, circulating (P2PK addresses vs contracts), and burned token supply.
 }
 \examples{
 migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
