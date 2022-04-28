@@ -61,18 +61,18 @@ ergodexAllPoolStats()
 
 ## Roadmap
 
-- [ ] Develop function parity with Ergo Explorer
-- [x] Develop function parity with ErgoWatch
-- [ ] Develop function parity with ErgoDEX
+Develop function parity with the following services:
+
+- [ ] Ergo Explorer
+- [x] ErgoWatch
+- [ ] ErgoDEX
+- [ ] ErgoPad
 
 
 
 ## Changelog
 
 - v0.1.0: [unreleased]
-
-
-
 
 
 
