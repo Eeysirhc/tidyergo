@@ -1,7 +1,7 @@
 # tidyergo
 
 ## Overview
-[Ergo](https://ergoplatform.org/en/) blockchain statistics with R/Tidyverse leveraging the API endpoints from [Explorer](https://api.ergoplatform.com/api/v1/docs/), [ErgoWatch](https://ergo.watch/api/v0/docs), [ErgoDEX](https://api.ergodex.io/v1/docs/), and (ErgoPad)[https://github.com/ergo-pad/ergopad-api/tree/dev/app/api/v1/routes].
+[Ergo](https://ergoplatform.org/en/) blockchain statistics with R/Tidyverse leveraging the API endpoints from [Explorer](https://api.ergoplatform.com/api/v1/docs/), [ErgoWatch](https://ergo.watch/api/v0/docs), [ErgoDEX](https://api.ergodex.io/v1/docs/), and [ErgoPad](https://github.com/ergo-pad/ergopad-api/tree/dev/app/api/v1/routes).
 
 
 ## Installation
