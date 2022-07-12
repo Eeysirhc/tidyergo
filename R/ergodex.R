@@ -1,7 +1,14 @@
-# ErgoDEX pool statistics
+##########################################
+################# ErgoDEX ################
+##########################################
 
 
-# https://api.ergodex.io/v1/docs/#operation/Platform%20stats
+
+#####
+##### PLATFORM STATISTICS
+##### https://api.ergodex.io/v1/docs/#operation/Platform%20stats
+#####
+
 #' Platform Statistics
 #'
 #' Get statistics on whole AMM.
@@ -39,11 +46,11 @@ ergodexPlatformStats <- function(){
   return(df)
 }
 
+#####
+##### ALL POOL STATS
+##### https://api.ergodex.io/v1/docs/#operation/All%20pools%20stats
+#####
 
-
-
-
-# https://api.ergodex.io/v1/docs/#operation/All%20pools%20stats
 #' All Pool Stats
 #'
 #' Get statistics on all liquidity pools.
@@ -77,8 +84,6 @@ ergodexAllPoolStats <- function(from = NULL, to = NULL){
 
   return(df)
 }
-
-
 
 
 
