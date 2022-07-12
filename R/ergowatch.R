@@ -5,7 +5,7 @@
 
 
 ##############################
-# ADDRESS SPECIFIC DATA
+# ADDRESSES: address specific data
 ##############################
 
 #####
@@ -180,10 +180,94 @@ ew_addressesBalanceHistory <- function(address, token_id = NULL){
   return(df)
 }
 
+#####
+##### ADDRESS TAGS
+##### https://ergo.watch/api/v0/docs#/addresses/address_balance_history_addresses__address__balance_history_get
+#####
+
+#' Address Tags
+#'
+#' Returns all tags associated for a given address (e.g. exchange address, known contract, etc.)
+#'
+#' @param address Required: the P2PK or P2S address.
+#'
+#' @return A tibble with the tags associated to a given address.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
+#' @export
+#'
+#' @examples
+#' coinex <- "9fPiW45mZwoTxSwTLLXaZcdekqi72emebENmScyTGsjryzrntUe"
+#' ew_addressesTags(coinex)
+
+ew_addressesTags <- function(address){
+
+  url_request <- paste0("https://ergo.watch/api/v0/addresses/", address, "/tags")
+
+  df <- GET(url_request) %>%
+    content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as_tibble() %>%
+    mutate(address = address)
+
+  return(df)
+}
+
 
 
 ##############################
-# P2S & P2SH ADDRESS STATISTICS
+# P2PK: P2PK address statistics
+##############################
+
+#####
+##### NUMBER OF P2PK ADDRESSES
+##### https://ergo.watch/api/v0/docs#/p2pk/Number_of_P2PK_addresses_p2pk_count_get
+#####
+
+#' Number of P2PK Addresses
+#'
+#' Current P2PK addresses count.
+#'
+#' @param bal_ge Only count contract addresses with balance greater or equal to bal_ge. Default at 0.
+#' @param bal_lt Only count contract addresses with balance lower than bal_lt.
+#' @param token_id Token ID.
+#'
+#' @return A tibble with total count of P2PK addresses.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
+#' @export
+#'
+#' @examples
+#' ew_p2pkCount()
+#'
+#' ew_p2pkCount(bal_ge = 1000000)
+#'
+#' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
+#' ew_p2pkCount(bal_ge = 1e9, token_id = migoreng)
+
+ew_p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
+
+  url_request <- paste0("https://ergo.watch/api/v0/p2pk/count?bal_ge=", format(bal_ge, scientific = FALSE),
+                        ifelse(!is.null(bal_lt),
+                               paste0("&bal_lt=", format(bal_lt, scientific = FALSE)), ""),
+                        ifelse(!is.null(token_id),
+                               paste0("&token_id=", token_id), ""))
+
+  df <- GET(url_request) %>%
+    content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as_tibble() %>%
+    dplyr::rename(total_addresses = value)
+
+  return(df)
+}
+
+
+
+##############################
+# CONTRACTS: P2S & P2SH address statistics
 ##############################
 
 #####
@@ -265,57 +349,25 @@ ew_contractsSupply <- function(token_id = NULL){
 
 
 ##############################
-# P2PK ADDRESS STATISTICS
+# EXCHANGES: individual exchange data
 ##############################
-
-#####
-##### NUMBER OF P2PK ADDRESSES
-##### https://ergo.watch/api/v0/docs#/p2pk/Number_of_P2PK_addresses_p2pk_count_get
-#####
-
-#' Number of P2PK Addresses
-#'
-#' Current P2PK addresses count.
-#'
-#' @param bal_ge Only count contract addresses with balance greater or equal to bal_ge. Default at 0.
-#' @param bal_lt Only count contract addresses with balance lower than bal_lt.
-#' @param token_id Token ID.
-#'
-#' @return A tibble with total count of P2PK addresses.
-#' @import httr
-#' @import dplyr
-#' @import jsonlite
-#' @export
-#'
-#' @examples
-#' ew_p2pkCount()
-#'
-#' ew_p2pkCount(bal_ge = 1000000)
-#'
-#' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
-#' ew_p2pkCount(bal_ge = 1e9, token_id = migoreng)
-
-ew_p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
-
-  url_request <- paste0("https://ergo.watch/api/v0/p2pk/count?bal_ge=", format(bal_ge, scientific = FALSE),
-                        ifelse(!is.null(bal_lt),
-                               paste0("&bal_lt=", format(bal_lt, scientific = FALSE)), ""),
-                        ifelse(!is.null(token_id),
-                               paste0("&token_id=", token_id), ""))
-
-  df <- GET(url_request) %>%
-    content(as = "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as_tibble() %>%
-    dplyr::rename(total_addresses = value)
-
-  return(df)
-}
 
 
 
 ##############################
-# TOKEN FUNCTIONS
+# LISTS: rich lists, etc.
+##############################
+
+
+
+##############################
+# METRICS: metrics over time
+##############################
+
+
+
+##############################
+# TOKENS: token speccific data
 ##############################
 
 #####
@@ -387,7 +439,7 @@ ew_tokensSupply <- function(token_id){
 
 
 ##############################
-# MISCELLANEOUS FUNCTIONS
+# MISC: miscellaneous functions 
 ##############################
 
 #####
@@ -435,5 +487,3 @@ ew_p2pkRanking <- function(address){
 
   return(df)
 }
-
-
