@@ -14,12 +14,12 @@ devtools::install_github("Eeysirhc/tidyergo")
 
 ## Usage
 
-`library(tidyergo)` will load distinct API functions for each service.
+`library(tidyergo)` will load the API endpoints for each service with their own prefix identifier. 
 
-* Ergo Explorer
-* [ErgoWatch](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergowatch.R)
-* [ErgoDEX](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergodex.R)
-* ErgoPad
+* Ergo Explorer: `ee_functionName`
+* [ErgoWatch](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergowatch.R): `ew_functionName`
+* [ErgoDEX](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergodex.R): `ed_functionName`
+* ErgoPad: `ep_functionName`
 
 ## Examples
 
@@ -28,32 +28,32 @@ devtools::install_github("Eeysirhc/tidyergo")
 #### Balance history of an address
 ```r
 bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
-addressesBalanceHistory(bearwhale)
+ew_addressesBalanceHistory(bearwhale)
 ```
 
 #### Current P2PK address count
 ```r
 # addresses holding >= 1M+ $MiGoreng
 migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
-p2pkCount(bal_ge = 1000000, token_id = migoreng)
+ew_p2pkCount(bal_ge = 1000000, token_id = migoreng)
 ```
 
 #### Token supply: emitted, circulating, and burned
 ```r
 migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
-tokensSupply(migoreng)
+ew_tokensSupply(migoreng)
 ```
 
 ### ErgoDEX
 
 #### Retrieve AMM platform statistics
 ```r
-ergodexPlatformStats()
+ed_platformStats()
 ```
 
 #### Retrieve statistics for all liquidity pools
 ```r
-ergodexAllPoolStats()
+ed_allPoolStats()
 ```
 
 

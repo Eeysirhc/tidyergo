@@ -28,13 +28,13 @@
 #'
 #' @examples
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
-#' addressesBalance(bearwhale)
+#' ew_addressesBalance(bearwhale)
 #'
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
 #' erdoge <- "3a7eb9b71a231b8df485c4d8b081726eda9876d2ce2d59bab5e5874c6cbba220"
-#' addressesBalance(bearwhale, token_id = erdoge)
+#' ew_addressesBalance(bearwhale, token_id = erdoge)
 
-addressesBalance <- function(address, token_id = NULL){
+ew_addressesBalance <- function(address, token_id = NULL){
 
   url_request <- paste0("https://ergo.watch/api/v0/addresses/", address, "/balance",
                         ifelse(!is.null(token_id),
@@ -70,13 +70,13 @@ addressesBalance <- function(address, token_id = NULL){
 #'
 #' @examples
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
-#' addressesBalanceHeight(bearwhale, height = 700000)
+#' ew_addressesBalanceHeight(bearwhale, height = 700000)
 #'
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
 #' erdoge <- "3a7eb9b71a231b8df485c4d8b081726eda9876d2ce2d59bab5e5874c6cbba220"
-#' addressesBalanceHeight(bearwhale, height = 700000, token_id = erdoge)
+#' ew_addressesBalanceHeight(bearwhale, height = 700000, token_id = erdoge)
 
-addressesBalanceHeight <- function(address, height, token_id = NULL){
+ew_addressesBalanceHeight <- function(address, height, token_id = NULL){
 
   url_request <- paste0("https://ergo.watch/api/v0/addresses/", address, "/balance/at/height/", height,
                         ifelse(!is.null(token_id),
@@ -113,13 +113,13 @@ addressesBalanceHeight <- function(address, height, token_id = NULL){
 #'
 #' @examples
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
-#' addressesBalanceTimestamp(bearwhale, timestamp = 1614307368646)
+#' ew_addressesBalanceTimestamp(bearwhale, timestamp = 1614307368646)
 #'
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
 #' erdoge <- "3a7eb9b71a231b8df485c4d8b081726eda9876d2ce2d59bab5e5874c6cbba220"
-#' addressesBalanceTimestamp(bearwhale, timestamp = 1614307368646, token_id = erdoge)
+#' ew_addressesBalanceTimestamp(bearwhale, timestamp = 1614307368646, token_id = erdoge)
 
-addressesBalanceTimestamp <- function(address, timestamp, token_id = NULL){
+ew_addressesBalanceTimestamp <- function(address, timestamp, token_id = NULL){
 
   url_request <- paste0("https://ergo.watch/api/v0/addresses/", address, "/balance/at/timestamp/", timestamp,
                         ifelse(!is.null(token_id),
@@ -158,13 +158,13 @@ addressesBalanceTimestamp <- function(address, timestamp, token_id = NULL){
 #'
 #' @examples
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
-#' addressesBalanceHistory(bearwhale)
+#' ew_addressesBalanceHistory(bearwhale)
 #'
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
 #' erdoge <- "3a7eb9b71a231b8df485c4d8b081726eda9876d2ce2d59bab5e5874c6cbba220"
-#' addressesBalanceHistory(bearwhale, token_id = erdoge)
+#' ew_addressesBalanceHistory(bearwhale, token_id = erdoge)
 
-addressesBalanceHistory <- function(address, token_id = NULL){
+ew_addressesBalanceHistory <- function(address, token_id = NULL){
 
   url_request <- paste0("https://ergo.watch/api/v0/addresses/", address, "/balance/history?timestamps=true&flat=true&limit=10000&offset=0&desc=false",
                         ifelse(!is.null(token_id),
@@ -206,9 +206,9 @@ addressesBalanceHistory <- function(address, token_id = NULL){
 #' @export
 #'
 #' @examples
-#' contractsCount()
+#' ew_contractsCount()
 
-contractsCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
+ew_contractsCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
   url_request <- paste0("https://ergo.watch/api/v0/contracts/count?bal_ge=", format(bal_ge, scientific = FALSE),
                         ifelse(!is.null(bal_lt),
@@ -243,12 +243,12 @@ contractsCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 #' @export
 #'
 #' @examples
-#' contractsSupply()
+#' ew_contractsSupply()
 #'
 #' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
-#' contractsSupply(migoreng)
+#' ew_contractsSupply(migoreng)
 
-contractsSupply <- function(token_id = NULL){
+ew_contractsSupply <- function(token_id = NULL){
 
   url_request <- paste0("https://ergo.watch/api/v0/contracts/supply",
                         ifelse(!is.null(token_id),
@@ -288,14 +288,14 @@ contractsSupply <- function(token_id = NULL){
 #' @export
 #'
 #' @examples
-#' p2pkCount()
+#' ew_p2pkCount()
 #'
-#' p2pkCount(bal_ge = 1000000)
+#' ew_p2pkCount(bal_ge = 1000000)
 #'
 #' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
-#' p2pkCount(bal_ge = 1e9, token_id = migoreng)
+#' ew_p2pkCount(bal_ge = 1e9, token_id = migoreng)
 
-p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
+ew_p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 
   url_request <- paste0("https://ergo.watch/api/v0/p2pk/count?bal_ge=", format(bal_ge, scientific = FALSE),
                         ifelse(!is.null(bal_lt),
@@ -337,9 +337,9 @@ p2pkCount <- function(bal_ge = 0, bal_lt = NULL, token_id = NULL){
 #'
 #' @examples
 #' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
-#' tokensDetail(migoreng)
+#' ew_tokensDetail(migoreng)
 
-tokensDetail <- function(token_id){
+ew_tokensDetail <- function(token_id){
 
   url_request <- paste0("https://ergo.watch/api/v0/tokens/", token_id)
 
@@ -370,9 +370,9 @@ tokensDetail <- function(token_id){
 #'
 #' @examples
 #' migoreng <- "0779ec04f2fae64e87418a1ad917639d4668f78484f45df962b0dec14a2591d2"
-#' tokensSupply(migoreng)
+#' ew_tokensSupply(migoreng)
 
-tokensSupply <- function(token_id){
+ew_tokensSupply <- function(token_id){
 
   url_request <- paste0("https://ergo.watch/api/v0/tokens/", token_id, "/supply")
 
@@ -411,9 +411,9 @@ tokensSupply <- function(token_id){
 #'
 #' @examples
 #' bearwhale <- "9hyDXH72HoNTiG2pvxFQwxAhWBU8CrbvwtJDtnYoa4jfpaSk1d3"
-#' p2pkRanking(bearwhale)
+#' ew_p2pkRanking(bearwhale)
 
-p2pkRanking <- function(address){
+ew_p2pkRanking <- function(address){
 
   url_request <- paste0("https://ergo.watch/api/v0/ranking/", address)
 

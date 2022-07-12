@@ -22,9 +22,9 @@
 #' @export
 #'
 #' @examples
-#' ergodexPlatformStats()
+#' ed_platformStats()
 
-ergodexPlatformStats <- function(){
+ed_platformStats <- function(){
 
   url_request <- paste0("https://api.ergodex.io/v1/amm/platform/stats")
 
@@ -65,13 +65,13 @@ ergodexPlatformStats <- function(){
 #' @export
 #'
 #' @examples
-#' ergodexAllPoolStats()
+#' ed_allPoolStats()
 #'
 #' start <- 1648796400000
 #' end <- 1648926788038
-#' ergodexAllPoolStats(from = start, to = end)
+#' ed_allPoolStats(from = start, to = end)
 
-ergodexAllPoolStats <- function(from = NULL, to = NULL){
+ed_allPoolStats <- function(from = NULL, to = NULL){
 
   url_request <- paste0("https://api.ergodex.io/v1/amm/markets",
                         ifelse(!is.null(from),
