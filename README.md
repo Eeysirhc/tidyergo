@@ -17,8 +17,8 @@ devtools::install_github("Eeysirhc/tidyergo")
 `library(tidyergo)` will load distinct API functions for each service.
 
 * Ergo Explorer
-* ErgoWatch
-* ErgoDEX
+* [ErgoWatch](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergowatch.R)
+* [ErgoDEX](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergodex.R)
 * ErgoPad
 
 ## Examples
