@@ -2,7 +2,7 @@
 
 ## Overview
 
-[Ergo](https://ergoplatform.org/en/) is a resilient blockchain platform for contractual money. In addition to [Bitcoin](https://bitcoin.org/en/)-like blockchain architecture Ergo provides advanced contractual capabilities based on eUTXO model, which are not possible in Bitcoin.
+[Ergo](https://ergoplatform.org/en/) is a resilient blockchain platform for contractual money. In addition to [Bitcoin](https://bitcoin.org/en/)-like blockchain architecture, the Ergo protocol provides advanced contractual capabilities based on the eUTXO model which is not possible with Bitcoin.
 
 This R/Tidyverse package leverages the API endpoints from the official [Ergo Explorer](https://api.ergoplatform.com/api/v1/docs/), [ErgoWatch](https://ergo.watch/api/v0/docs), [ErgoDEX](https://api.ergodex.io/v1/docs/), and [ErgoPad](https://github.com/ergo-pad/ergopad-api/tree/dev/app/api/v1/routes) to retrieve blockchain data across the ecosystem.
 
@@ -16,10 +16,10 @@ devtools::install_github("Eeysirhc/tidyergo")
 
 `library(tidyergo)` will load the API endpoints for each service with their own prefix identifier. 
 
-* Ergo Explorer: `ee_functionName`
-* [ErgoWatch](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergowatch.R): `ew_functionName`
-* [ErgoDEX](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergodex.R): `ed_functionName`
-* ErgoPad: `ep_functionName`
+* Ergo Explorer: `ee_`
+* [ErgoWatch](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergowatch.R): `ew_`
+* [ErgoDEX](https://github.com/Eeysirhc/tidyergo/blob/main/R/ergodex.R): `ed_`
+* ErgoPad: `ep_`
 
 ## Examples
 
