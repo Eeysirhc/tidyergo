@@ -67,3 +67,13 @@ Installing this package also installs a selection of other R packages as depende
 * [tidyr](https://tidyr.tidyverse.org/), data tidying
 * [purrr](https://purrr.tidyverse.org/), functional programming
 
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, be inspired, and create. Thus, any contributions to this package is highly appreciated.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/new-stuff`)
+3. Commit your changes (`git commit -m "Add some new-stuff"`)
+4. Push to branch (`git push origin feature/new-stuff`)
+5. Open a pull request
+
