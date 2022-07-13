@@ -352,11 +352,122 @@ ew_contractsSupply <- function(token_id = NULL){
 # EXCHANGES: individual exchange data
 ##############################
 
+#####
+##### EXCHANGES
+##### https://ergo.watch/api/v0/docs#/exchanges/list_tracked_exchanges_exchanges_get
+##### 
+
+#' List Tracked Exchanges
+#'
+#' List ID's of tracked exchanges.
+#'
+#' @return A tibble with the ID's for exchanges being tracked on ErgoWatch.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
+#' @export
+#'
+#' @examples
+#' ew_exchanges()
+
+ew_exchanges <- function(){
+
+  url_request <- paste0("https://ergo.watch/api/v0/exchanges")
+
+  df <- GET(url_request) %>%
+    content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as_tibble()
+
+  return(df)
+}
+
+#####
+##### EXCHANGES SUPPLY
+##### https://ergo.watch/api/v0/docs#/exchanges/exchange_supply_history_exchanges__exchange__supply_get
+##### 
+
+#' Exchange Supply History
+#'
+#' Supply on known main and deposit addresses.
+#'
+#' @param exchange Required: Exchange ID (use ew_exchanges() function).
+#' @param since Height or timestamp of first record.
+#' @param limit Maximum of 10,000.
+#'
+#' @return A tibble with the ID's for exchanges being tracked on ErgoWatch.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
+#' @export
+#'
+#' @examples
+#' ew_exchangesSupply(exchange = "kucoin")
+#' 
+#' Note: the "since" and "limit" parameters MUST be used together.
+#' ew_exchangesSupply(exchange = "gate", since = 1, limit = 100)
+
+ew_exchangesSupply <- function(exchange, since = NULL, limit = NULL){
+
+  url_request <- paste0("https://ergo.watch/api/v0/exchanges/", exchange, "/supply",
+                        ifelse(!is.null(since),
+                               paste0("?since=", since), ""),
+                        ifelse(!is.null(limit),
+                               paste0("&limit=", limit), ""))
+
+  df <- GET(url_request) %>%
+    content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as_tibble()
+
+  return(df)
+}
+
 
 
 ##############################
 # LISTS: rich lists, etc.
 ##############################
+
+#####
+##### RICH LIST
+##### https://ergo.watch/api/v0/docs#/lists/rich_list_lists_addresses_by_balance_get
+##### 
+
+#' Rich List
+#'
+#' Get addresses with largest balance.
+#'
+#' @param token_id Token ID.
+#' @param limit Default value of 100 with maximum of 10,000.
+#'
+#' @return A tibble with the top addresses and their respective values for holding $ERG or a given token ID.
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
+#' @export
+#'
+#' @examples
+#' ew_richlistsBalance()
+#'
+#' comet <- "0cd8c9f416e5b1ca9f986a7f10a84191dfb85941619e49e53c0dc30ebf83324b"
+#' ew_richlistsBalance(comet)
+
+ew_richlistsBalance <- function(token_id = NULL, limit = NULL){
+
+  url_request <- paste0("https://ergo.watch/api/v0/lists/addresses/by/balance",
+                        ifelse(!is.null(limit),
+                               paste0("?limit=", limit), "?limit=100"),
+                        ifelse(!is.null(token_id),
+                               paste0("&token_id=", token_id), ""))
+
+  df <- GET(url_request) %>%
+    content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as_tibble()
+
+  return(df)
+}
 
 
 
@@ -487,3 +598,7 @@ ew_p2pkRanking <- function(address){
 
   return(df)
 }
+
+
+
+
