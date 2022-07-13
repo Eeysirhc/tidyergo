@@ -69,11 +69,11 @@ Installing this package also installs a selection of other R packages as depende
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, be inspired, and create. Thus, any contributions to this package is highly appreciated.
+Contributions make the open source community an amazing place to inspire, learn, and create. Thus, any improvements to this package is highly appreciated.
 
-1. Fork the project
+1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/new-stuff`)
-3. Commit your changes (`git commit -m "Add some new-stuff"`)
+3. Commit your changes (`git commit -am "Add new stuff improvements"`)
 4. Push to branch (`git push origin feature/new-stuff`)
 5. Open a pull request
 
