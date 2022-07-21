@@ -470,15 +470,91 @@ ew_richlistsBalance <- function(token_id = NULL, limit = NULL){
 }
 
 
-
+########## IN PROGRESS ##########
 ##############################
 # METRICS: metrics over time
 ##############################
 
+#####
+##### SUPPLY ACROSS EXCHANGES
+##### https://ergo.watch/api/v0/docs#/metrics/supply_across_all_tracked_exchanges_metrics_exchanges_supply_get
+#####
+
+#' Supply Across All Tracked Exchanges
+#'
+#' Returns total supply and supply on deposit addresses. Supply on main addresses is total - deposit.
+#'
+#' @param fr placeholder
+#' @param to placeholder
+#' @param r placeholder
+#'
+#' @return A tibble that does this...
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
+#' @export
+#'
+#' @examples
+#' ew_metricsExchangesSupply()
+
+ew_metricsExchangesSupply <- function(token_id = NULL, limit = NULL){
+
+  url_request <- paste0("https://ergo.watch/api/v0/lists/addresses/by/balance",
+                        ifelse(!is.null(limit),
+                               paste0("?limit=", limit), "?limit=100"),
+                        ifelse(!is.null(token_id),
+                               paste0("&token_id=", token_id), ""))
+
+  df <- GET(url_request) %>%
+    content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as_tibble()
+
+  return(df)
+}
+
+#####
+##### UTXO COUNTS
+##### https://ergo.watch/api/v0/docs#/metrics/counts_metrics_utxos_get
+#####
+
+#' Number of UTxO's
+#'
+#' UTxO counts.
+#'
+#' @param fr placeholder
+#' @param to placeholder
+#' @param r placeholder
+#'
+#' @return A tibble that does that...
+#' @import httr
+#' @import dplyr
+#' @import jsonlite
+#' @export
+#'
+#' @examples
+#' ew_metricsUtxos()
+
+ew_metricsUtxos <- function(token_id = NULL, limit = NULL){
+
+  url_request <- paste0("https://ergo.watch/api/v0/lists/addresses/by/balance",
+                        ifelse(!is.null(limit),
+                               paste0("?limit=", limit), "?limit=100"),
+                        ifelse(!is.null(token_id),
+                               paste0("&token_id=", token_id), ""))
+
+  df <- GET(url_request) %>%
+    content(as = "text", encoding = "UTF-8") %>%
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as_tibble()
+
+  return(df)
+}
+########## END IN PROGRESS ##########
 
 
 ##############################
-# TOKENS: token speccific data
+# TOKENS: token specific data
 ##############################
 
 #####
@@ -598,7 +674,6 @@ ew_p2pkRanking <- function(address){
 
   return(df)
 }
-
 
 
 
